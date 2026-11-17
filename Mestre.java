@@ -16,8 +16,8 @@ public class Mestre {
         String[] ips = {
                 "192.168.1.100",  // 0 → Mestre
                 "192.168.1.101",  // 1 → Escravo 1
-                "192.168.1.102",  // 2 → Escravo 2
-                "192.168.1.103"   // 3 → Escravo 3
+                "192.168.1.121",  // 2 → Escravo 2
+                "192.168.1.85"   // 3 → Escravo 3
         };
 
         DatagramSocket socket = new DatagramSocket(minhaPorta);
