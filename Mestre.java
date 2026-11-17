@@ -13,17 +13,9 @@ public class Mestre {
         int minhaPorta = 6000;
         int portaProximo = 6000 + 1;
 
-        String[] ips = {
-                "192.168.1.100",  // 0 → Mestre
-                "192.168.1.101",  // 1 → Escravo 1
-                "192.168.1.121",  // 2 → Escravo 2
-                "192.168.1.85"   // 3 → Escravo 3
-        };
-
         DatagramSocket socket = new DatagramSocket(minhaPorta);
 
-        InetAddress host = InetAddress.getByName(ips[1]);
-
+        InetAddress host = InetAddress.getByName(args[3]);
         for (int i = 0; i < voltas; i++){
 
             byte[] dados = String.valueOf(token).getBytes();
