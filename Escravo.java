@@ -14,7 +14,16 @@ public class Escravo {
             portaProximo = 6000;
         }
 
+        String[] ips = {
+                "192.168.1.100",  // 0 → Mestre
+                "192.168.1.101",  // 1 → Escravo 1
+                "192.168.1.102",  // 2 → Escravo 2
+                "192.168.1.103"   // 3 → Escravo 3
+        };
+
         DatagramSocket socket = new DatagramSocket(minhaPorta);
+
+        InetAddress host = InetAddress.getByName(ips[portaProximo - 6000]);
 
         for (int i = 0; i < voltas; i++) {
             byte[] buffer = new byte[1000];
@@ -30,7 +39,6 @@ public class Escravo {
             }
 
             byte[] msg = String.valueOf(token).getBytes();
-            InetAddress host = InetAddress.getByName("localhost");
             DatagramPacket request = new DatagramPacket(msg, msg.length, host, portaProximo);
             System.out.println("Enviando token '" + token + "' para o processo: " + (portaProximo - 6000));
             socket.send(request);
